@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 import { app, server } from "./socket/socket.js";
 
 
-const port = 4000;
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(cookieParser());
