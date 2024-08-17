@@ -8,7 +8,7 @@ async function protectRoute(req, res, next) {
             return res.status(401).json({error: "Unauthorised - no token provided"});
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, "TOPSECRETWORD");
 
         if (!decoded) {
             return res.status(401).json({error: "Unauthorised - Invalid Token"});
