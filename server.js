@@ -13,7 +13,7 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://whatsapp-clone-frontend-inky.vercel.app",
     credentials: true
 }));
 
