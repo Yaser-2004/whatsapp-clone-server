@@ -6,16 +6,17 @@ import messageRoutes from "./routes/message.routes.js"
 import userRoutes from "./routes/user.routes.js"
 import cookieParser from "cookie-parser";
 import { app, server } from "./socket/socket.js";
+import env from "dotenv";
 
-
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://whatsapp-clone-frontend-inky.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true
 }));
+env.config();
 
 
 mongoose.connect(process.env.MONGO_URI);

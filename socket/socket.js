@@ -1,13 +1,15 @@
 import { Server } from "socket.io";
 import http from "http";
 import express from "express";
+//import env from "dotenv";
 
 const app = express();
+//env.config();
 
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["https://whatsapp-clone-frontend-inky.vercel.app"],
+        origin: process.env.FRONTEND_URL,
         methods:["GET", "POST"]
     }
 });
